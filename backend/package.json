@@ -1,0 +1,23 @@
+{
+  "name": "scan2shop",
+  "version": "1.0.0",
+  "description": "Scan barcodes and shop with your mobile",
+  "main": "app.js",
+  "scripts": {
+    "start":"node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielhalupka/ibmhackathon.git"
+  },
+  "author": "Danijel Halupka & Fedor Galadik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielhalupka/ibmhackathon/issues"
+  },
+  "homepage": "https://github.com/danielhalupka/ibmhackathon#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
