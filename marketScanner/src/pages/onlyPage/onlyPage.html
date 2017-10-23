@@ -7,9 +7,10 @@
 </ion-header>
 
 <ion-content padding>
-    <button (click)="readQRCode()" class="fullscreen-button">Scan</button>
-    <!--div>
+    <button *ngIf="!isReading" (click)="readQRCode()" class="fullscreen-button">Scan</button>
+    <div *ngIf="isReading">
         <ngx-barcode *ngFor="let barcode of barcodes" [bc-value]="barcode" [bc-display-value]="true"></ngx-barcode>
-    </div-->
+    </div>
+    <button *ngIf="isReading" (click)="goBack()" class="fullscreen-button">Again</button>
 
 </ion-content>

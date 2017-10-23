@@ -9,17 +9,18 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 export class OnlyPage {
 
   barcodes = [];
-  
+  isReading = false;
+
   constructor(public navCtrl: NavController, public scanner: BarcodeScanner) {
 
   }
 
   readQRCode() {
-    alert("reading");
     this.scanner.scan({
       formats: 'QR_CODE',
       prompt: 'Point to qr code.'
     }).then((qrData) => {
+      this.isReading = true;
       this.barcodes = [];
       var parsed = JSON.parse(qrData.text);
       if (parsed) {
@@ -38,6 +39,11 @@ export class OnlyPage {
     }, (err) => {
       alert(err);
     });
+  }
+
+  goBack() {
+    this.isReading = false;
+    this.readQRCode();
   }
 
 }
