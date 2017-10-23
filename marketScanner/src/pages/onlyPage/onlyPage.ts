@@ -15,7 +15,6 @@ export class OnlyPage {
   }
 
   readQRCode() {
-    alert("reading");
     this.scanner.scan({
       formats: 'QR_CODE',
       prompt: 'Point to qr code.'
