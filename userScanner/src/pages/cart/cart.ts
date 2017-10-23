@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { CurrentCart } from '../../app/services/current.cart.service';
+import { CheckoutPage } from '../checkout/checkout';
 
 @Component({
   selector: 'page-cart',
@@ -8,12 +10,12 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 })
 export class CartPage {
 
-  barcodes: any[] = [];
+
   actualBarcode: String = "";
   howManyActive: boolean = false;
   howManyNumber: Number = 1;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public scanner: BarcodeScanner) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public scanner: BarcodeScanner, public currentCart : CurrentCart) {
   }
 
   startAddProduct() {
@@ -38,9 +40,9 @@ export class CartPage {
 
   finishAdding() {
     if (this.howManyNumber === 1) {
-      this.barcodes.push(this.actualBarcode);
+      this.currentCart.barcodes.push(this.actualBarcode);
     } else {
-      this.barcodes.push({
+      this.currentCart.barcodes.push({
         v: this.actualBarcode,
         m: this.howManyNumber
       });
@@ -50,6 +52,9 @@ export class CartPage {
     this.howManyNumber = 1;
   }
 
+  finishOrder(){
+    this.navCtrl.push(CheckoutPage);
+  }
 
 
 }

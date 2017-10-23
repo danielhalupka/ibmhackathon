@@ -19,7 +19,7 @@
     </div>
 
     <div>
-        <ngx-barcode *ngFor="let barcode of barcodes" [bc-value]="barcode" [bc-display-value]="true"></ngx-barcode>
+        <ngx-barcode *ngFor="let barcode of currentCart.barcodes" [bc-value]="barcode" [bc-display-value]="true"></ngx-barcode>
     </div>
 
     <div class="button-holded">
@@ -30,7 +30,7 @@
             <button *ngIf="!howManyActive" (click)="startAddProduct()" class="green lg">+</button>
         </div>
         <div>
-            <button class="blue">C</button>
+            <button (click)="finishOrder()" class="blue">C</button>
         </div>
     </div>
 </ion-content>

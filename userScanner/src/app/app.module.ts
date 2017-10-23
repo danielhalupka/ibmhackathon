@@ -5,6 +5,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { OnlineChecker } from './services/online.checker.service';
+import { CurrentCart } from './services/current.cart.service';
 import { OnlineIndicator } from './components/online.indicator/online.indicator';
 import { Network } from '@ionic-native/network';
 
@@ -19,6 +20,8 @@ import { OrderHistoryPage } from '../pages/order-history/order-history';
 import { RegisterLoginPage } from '../pages/register-login/register-login';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { FormsModule } from '@angular/forms';
+import { QRCodeModule } from 'angular2-qrcode';
+import { NgxBarcodeModule } from 'ngx-barcode';
 
 import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
 const config: SocketIoConfig = { url: 'https://scan2shop.mybluemix.net', options: {} };
@@ -40,7 +43,9 @@ const config: SocketIoConfig = { url: 'https://scan2shop.mybluemix.net', options
     BrowserModule,
     IonicModule.forRoot(MyApp),
     FormsModule,
-    SocketIoModule.forRoot(config)
+    SocketIoModule.forRoot(config),
+    QRCodeModule,
+    NgxBarcodeModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -55,6 +60,7 @@ const config: SocketIoConfig = { url: 'https://scan2shop.mybluemix.net', options
     RegisterLoginPage
   ],
   providers: [
+    CurrentCart,
     BarcodeScanner,
     OnlineChecker,
     StatusBar,
