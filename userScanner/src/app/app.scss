@@ -14,3 +14,81 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+
+.button-holded {
+    position: fixed;
+    z-index: 9999;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px;
+}
+
+.button-holded button {
+    height: 44px;
+    width: 44px;
+    background: grey;
+    border-width:3px;
+    border-radius: 50%;
+    /* position: relative; */
+    /* display: block; */
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 21px;
+}
+
+.button-holded button:nth-child(2) {
+    width:56px;
+    height:56px;
+}
+.button-holded > div {
+    width: 33%;
+    float: left;
+    text-align: center;
+}
+
+button.green {
+    background: green;
+    border-color: rgb(51, 223, 51);
+    border-style: solid;
+}
+
+button.red {
+    background: red;
+    border-color: rgb(245, 101, 101);
+    border-style: solid;
+}
+
+button.blue{
+    background:blue;
+    border-color:rgb(100, 100, 255);
+    border-style: solid;
+}
+
+.button-holded button.lg{
+    width:56px;
+    height:56px;
+}
+
+online-indicator {
+    float: right;
+    display: block;
+}
+
+online-indicator div.green {
+    background: green;
+}
+online-indicator div{
+    width: 20px;
+    height: 20px;
+    margin: 2px;
+    border-radius: 50%;
+    background: grey;
+    border: 3px solid #b7b7b7;
+}
+
+online-indicator div.grey {
+    background: grey;
+}
