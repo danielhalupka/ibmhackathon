@@ -4,7 +4,7 @@
       <ion-icon name="menu"></ion-icon>
     </button>
         <ion-title>Cart
-            <online-indicator></online-indicator>
+            <!--<online-indicator></online-indicator>-->
         </ion-title>
 
     </ion-navbar>
@@ -24,13 +24,13 @@
 
     <div class="button-holded">
         <div>
-            <button class="red">X</button>
+            <button class="red" (click)="clearAll()">Cancel</button>
         </div>
         <div>
-            <button *ngIf="!howManyActive" (click)="startAddProduct()" class="green lg">+</button>
+            <button *ngIf="!howManyActive" (click)="startAddProduct()" class="green lg">Add</button>
         </div>
         <div>
-            <button (click)="finishOrder()" class="blue">C</button>
+            <button *ngIf="!howManyActive" (click)="finishOrder()" class="blue">Finish</button>
         </div>
     </div>
 </ion-content>

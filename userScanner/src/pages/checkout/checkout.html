@@ -1,10 +1,10 @@
 <ion-header>
     <ion-navbar>
-        <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+        <!--<button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+        </button>-->
         <ion-title>Checkout
-            <online-indicator></online-indicator>
+
         </ion-title>
 
     </ion-navbar>
@@ -12,15 +12,16 @@
 
 <ion-content padding>
 
-    <qr-code [value]="JSON.stringify(currentCart.barcodes)" [size]="300"></qr-code>
+    <qr-code [value]="stringify(currentCart.barcodes)" [size]="300"></qr-code>
 
     <div class="button-holded">
-        <div><button class="red">B</button>
+        <div><button class="red" (click)="cancel()">Cancel</button>
         </div>
         <div>
-            <button class="green lg">A</button></div>
+        </div>
         <div>
-            <button class="blue">C</button></div>
+            <button class="green" (click)="finishCheckout()">Done</button>
+        </div>
 
     </div>
 </ion-content>

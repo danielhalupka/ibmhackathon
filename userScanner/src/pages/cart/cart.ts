@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { CurrentCart } from '../../app/services/current.cart.service';
-import { CheckoutPage } from '../checkout/checkout';
 
+@IonicPage()
 @Component({
   selector: 'page-cart',
   templateUrl: 'cart.html',
@@ -47,13 +47,19 @@ export class CartPage {
         m: this.howManyNumber
       });
     }
-    alert(this.howManyNumber);
     this.howManyActive = false;
     this.howManyNumber = 1;
   }
 
+  clearAll(){
+    this.currentCart.barcodes = [];
+    this.howManyActive = false;
+    this.howManyNumber = 1;
+    this.navCtrl.popToRoot();
+  }
+
   finishOrder(){
-    this.navCtrl.push(CheckoutPage);
+    this.navCtrl.push('CheckoutPage');
   }
 
 
