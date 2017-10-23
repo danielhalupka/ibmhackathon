@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { OnlyPage } from '../pages/onlyPage/onlyPage';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { NgxBarcodeModule } from 'ngx-barcode';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     OnlyPage
   ],
   imports: [
+    NgxBarcodeModule,
     BrowserModule,
     IonicModule.forRoot(MyApp)
   ],
