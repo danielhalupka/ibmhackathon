@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>Cart
+            <online-indicator></online-indicator>
+        </ion-title>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <div *ngIf="howManyActive">
+        <p>How many?</p>
+        <input type="number" [(ngModel)]="howManyNumber" name="howManyNumber">
+        <button *ngIf="howManyActive" (click)="finishAdding()" class="green lg">Add</button>
+    </div>
+
+    <div>
+        <ngx-barcode *ngFor="let barcode of barcodes" [bc-value]="barcode" [bc-display-value]="true"></ngx-barcode>
+    </div>
+
+    <div class="button-holded">
+        <div>
+            <button class="red">X</button>
+        </div>
+        <div>
+            <button *ngIf="!howManyActive" (click)="startAddProduct()" class="green lg">+</button>
+        </div>
+        <div>
+            <button class="blue">C</button>
+        </div>
+    </div>
+</ion-content>

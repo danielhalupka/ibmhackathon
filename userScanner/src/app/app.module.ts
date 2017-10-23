@@ -4,32 +4,55 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { OnlineChecker } from './services/online.checker.service';
 import { OnlineIndicator } from './components/online.indicator/online.indicator';
 import { Network } from '@ionic-native/network';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { CheckoutPage } from '../pages/checkout/checkout';
+import { CheckPricePage } from '../pages/check-price/check-price';
+import { SingleProductPage } from '../pages/single-product/single-product';
+import { SingleOrderPage } from '../pages/single-order/single-order';
+import { CartPage } from '../pages/cart/cart';
+import { OrderHistoryPage } from '../pages/order-history/order-history';
+import { RegisterLoginPage } from '../pages/register-login/register-login';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
-    OnlineIndicator
+    OnlineIndicator,
+    CheckoutPage,
+    CheckPricePage,
+    SingleProductPage,
+    SingleOrderPage,
+    CartPage,
+    OrderHistoryPage,
+    RegisterLoginPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    FormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
+    CheckoutPage,
     MyApp,
     HomePage,
-    ListPage
+    CheckPricePage,
+    SingleProductPage,
+    SingleOrderPage,
+    CartPage,
+    OrderHistoryPage,
+    RegisterLoginPage
   ],
   providers: [
+    BarcodeScanner,
     OnlineChecker,
     StatusBar,
     Network,
