@@ -12,5 +12,4 @@
         <ngx-barcode *ngFor="let barcode of barcodes" [bc-value]="barcode" [bc-display-value]="true"></ngx-barcode>
     </div>
     <button *ngIf="isReading" (click)="goBack()" class="fullscreen-button">Again</button>
-
 </ion-content>

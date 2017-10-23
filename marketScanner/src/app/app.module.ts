@@ -7,9 +7,11 @@ import { MyApp } from './app.component';
 import { OnlyPage } from '../pages/onlyPage/onlyPage';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { NgxBarcodeModule } from 'ngx-barcode';
-import { BarcodeDIO } from './services/barcode.dio/barcode.dio.service';
+import { MarketOrdersModel } from './services/barcode.dio/market.orders.model';
+import { SocketInitiator } from './services/socketinitiator';
 import { HttpModule } from '@angular/http'; 
-
+import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
+const config: SocketIoConfig = { url: 'http://10.62.193.234:3000', options: {} };
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { HttpModule } from '@angular/http';
     HttpModule,
     NgxBarcodeModule,
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    SocketIoModule.forRoot(config)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -28,10 +31,11 @@ import { HttpModule } from '@angular/http';
     OnlyPage
   ],
   providers: [
-    BarcodeDIO,
+    MarketOrdersModel,
     BarcodeScanner,
     StatusBar,
     SplashScreen,
+    SocketInitiator,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
