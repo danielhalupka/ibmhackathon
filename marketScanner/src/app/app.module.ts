@@ -3,11 +3,13 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-
 import { MyApp } from './app.component';
 import { OnlyPage } from '../pages/onlyPage/onlyPage';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { NgxBarcodeModule } from 'ngx-barcode';
+import { BarcodeDIO } from './services/barcode.dio/barcode.dio.service';
+import { HttpModule } from '@angular/http'; 
+
 
 @NgModule({
   declarations: [
@@ -15,6 +17,7 @@ import { NgxBarcodeModule } from 'ngx-barcode';
     OnlyPage
   ],
   imports: [
+    HttpModule,
     NgxBarcodeModule,
     BrowserModule,
     IonicModule.forRoot(MyApp)
@@ -25,6 +28,7 @@ import { NgxBarcodeModule } from 'ngx-barcode';
     OnlyPage
   ],
   providers: [
+    BarcodeDIO,
     BarcodeScanner,
     StatusBar,
     SplashScreen,
