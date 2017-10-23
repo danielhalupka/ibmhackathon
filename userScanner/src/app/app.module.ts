@@ -31,12 +31,7 @@ const config: SocketIoConfig = { url: 'https://scan2shop.mybluemix.net', options
   declarations: [
     MyApp,
     HomePage,
-<<<<<<< HEAD
     OnlineIndicator,
-=======
-    OnlineIndicator, 
-    CheckoutPage,
->>>>>>> 21f5f17218cfbc317e2fefa352db5c5a73061697
     CheckPricePage,
     SingleProductPage,
     SingleOrderPage,
