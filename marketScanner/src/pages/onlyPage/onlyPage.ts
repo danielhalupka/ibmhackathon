@@ -16,11 +16,11 @@ export class OnlyPage {
   }
 
   readQRCode() {
-    this.isReading = true;
     this.scanner.scan({
       formats: 'QR_CODE',
       prompt: 'Point to qr code.'
     }).then((qrData) => {
+      this.isReading = true;
       this.barcodes = [];
       var parsed = JSON.parse(qrData.text);
       if (parsed) {
