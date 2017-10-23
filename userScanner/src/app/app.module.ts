@@ -11,11 +11,11 @@ import { Network } from '@ionic-native/network';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { CheckoutPage } from '../pages/checkout/checkout';
+import { CheckoutPageModule } from '../pages/checkout/checkout.module';
+import { CartPageModule } from '../pages/cart/cart.module';  
 import { CheckPricePage } from '../pages/check-price/check-price';
 import { SingleProductPage } from '../pages/single-product/single-product';
 import { SingleOrderPage } from '../pages/single-order/single-order';
-import { CartPage } from '../pages/cart/cart';
 import { OrderHistoryPage } from '../pages/order-history/order-history';
 import { RegisterLoginPage } from '../pages/register-login/register-login';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
@@ -31,11 +31,9 @@ const config: SocketIoConfig = { url: 'https://scan2shop.mybluemix.net', options
     MyApp,
     HomePage,
     OnlineIndicator,
-    CheckoutPage,
     CheckPricePage,
     SingleProductPage,
     SingleOrderPage,
-    CartPage,
     OrderHistoryPage,
     RegisterLoginPage
   ],
@@ -43,19 +41,19 @@ const config: SocketIoConfig = { url: 'https://scan2shop.mybluemix.net', options
     BrowserModule,
     IonicModule.forRoot(MyApp),
     FormsModule,
+    CheckoutPageModule,
     SocketIoModule.forRoot(config),
     QRCodeModule,
-    NgxBarcodeModule
+    NgxBarcodeModule,
+    CartPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    CheckoutPage,
     MyApp,
     HomePage,
     CheckPricePage,
     SingleProductPage,
     SingleOrderPage,
-    CartPage,
     OrderHistoryPage,
     RegisterLoginPage
   ],
