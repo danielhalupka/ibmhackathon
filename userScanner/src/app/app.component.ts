@@ -12,6 +12,7 @@ import { CartPage } from '../pages/cart/cart';
 import { OrderHistoryPage } from '../pages/order-history/order-history';
 import { RegisterLoginPage } from '../pages/register-login/register-login';
 
+import { SocketInitiator } from './services/socketinitiator';
 @Component({
   templateUrl: 'app.html'
 })
@@ -22,7 +23,7 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private socketInitiator:SocketInitiator) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation

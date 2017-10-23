@@ -11,7 +11,7 @@ import { MarketOrdersModel } from './services/barcode.dio/market.orders.model';
 import { SocketInitiator } from './services/socketinitiator';
 import { HttpModule } from '@angular/http'; 
 import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
-const config: SocketIoConfig = { url: 'http://10.62.193.234:3000', options: {} };
+const config: SocketIoConfig = { url: 'https://scan2shop.mybluemix.net', options: {} };
 
 @NgModule({
   declarations: [
