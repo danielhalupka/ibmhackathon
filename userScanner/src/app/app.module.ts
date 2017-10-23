@@ -39,7 +39,7 @@ const config: SocketIoConfig = { url: 'https://scan2shop.mybluemix.net', options
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    FormsModule
+    FormsModule,
     SocketIoModule.forRoot(config)
   ],
   bootstrap: [IonicApp],
