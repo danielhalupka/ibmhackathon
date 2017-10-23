@@ -4,7 +4,7 @@
             <ion-icon name="menu"></ion-icon>
         </button>
         <ion-title>Cart
-            <!--<online-indicator></online-indicator>-->
+            <online-indicator></online-indicator>
         </ion-title>
 
     </ion-navbar>
@@ -12,6 +12,7 @@
 
 <ion-content padding>
 
+    <div *ngIf="currentCart.barcodes.length === 0">No products in cart</div>
     <div *ngIf="howManyActive">
         <p>How many?</p>
         <input type="number" [(ngModel)]="howManyNumber" name="howManyNumber">

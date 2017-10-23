@@ -24,4 +24,5 @@ export class CheckoutPage {
   finishCheckout(){
     alert("finish checkout , add to mongo");
   }
+  
 }
