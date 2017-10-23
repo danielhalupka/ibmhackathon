@@ -20,6 +20,8 @@ import { RegisterLoginPage } from '../pages/register-login/register-login';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { FormsModule } from '@angular/forms';
 
+import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
+const config: SocketIoConfig = { url: 'https://scan2shop.mybluemix.net', options: {} };
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     FormsModule
+    SocketIoModule.forRoot(config)
   ],
   bootstrap: [IonicApp],
   entryComponents: [

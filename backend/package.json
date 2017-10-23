@@ -4,7 +4,7 @@
   "description": "Scan barcodes and shop with your mobile",
   "main": "app.js",
   "scripts": {
-    "start":"node app.js",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/danielhalupka/ibmhackathon#readme",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "mongodb": "^2.2.33",
+    "socket.io": "^2.0.4"
   }
 }

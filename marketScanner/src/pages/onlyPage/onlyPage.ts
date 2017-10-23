@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
-import { BarcodeDIO } from '../../app/services/barcode.dio/barcode.dio.service';
+import { MarketOrdersModel } from '../../app/services/barcode.dio/market.orders.model';
 
 @Component({
   selector: 'page-only',
@@ -12,7 +12,7 @@ export class OnlyPage {
   barcodes = [];
   isReading = false;
 
-  constructor(public navCtrl: NavController, public scanner: BarcodeScanner, public barodeDio: BarcodeDIO) {
+  constructor(public navCtrl: NavController, public scanner: BarcodeScanner, public marketOrdersModel: MarketOrdersModel) {
 
   }
 
@@ -35,7 +35,7 @@ export class OnlyPage {
             this.barcodes.push(parsed[i]);
           }
         }
-        withoutError = true;
+          this.marketOrdersModel.postNewOrder(this.barcodes);
       } else {
         alert("QR code can't be deserialized!");
       }
@@ -43,11 +43,7 @@ export class OnlyPage {
       alert(err);
     });
 
-    if (withoutError) {
-      this.barodeDio.sendBarcodes(this.barcodes).subscribe((data) => {
-        alert(data);
-      });
-    }
+    
 
   }
 
