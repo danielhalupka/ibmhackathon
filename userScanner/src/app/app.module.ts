@@ -9,6 +9,7 @@ import { CurrentCart } from './services/current.cart.service';
 import { OnlineIndicator } from './components/online.indicator/online.indicator';
 import { Network } from '@ionic-native/network';
 
+import { SingleProductModel } from './services/single.product.model';
 import { SocketInitiator } from './services/socketinitiator';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -63,6 +64,7 @@ const config: SocketIoConfig = { url: 'https://scan2shop.mybluemix.net', options
     BarcodeScanner,
     OnlineChecker,
     StatusBar,
+    SingleProductModel,
     Network,
     SocketInitiator,
     SplashScreen,
