@@ -1,30 +1,28 @@
 import { Injectable } from '@angular/core';
 
 import { Network } from '@ionic-native/network';
-import { OnInit } from '@angular/core';
 
 @Injectable()
 export class OnlineChecker {
 
     isOnline: boolean = false;
     connectSubscription: any = {};
+    disconnectSubscription: any = {};
 
     constructor(private network: Network) {
-        this.connectSubscription = this.network.onConnect().subscribe(() => {
-            alert('network connected!');
-            // We just got a connection but we need to wait briefly
-            // before we determine the connection type. Might need to wait.
-            // prior to doing any api requests as well.
+        let self = this;
+        if(self.network.type !== 'none'){
+            self.isOnline = true;
+        }
+        self.connectSubscription = self.network.onConnect().subscribe(() => {
             setTimeout(() => {
-                if (this.network.type === 'wifi') {
-                    alert('we got a wifi connection, woohoo!');
-                }
+                self.isOnline = true;
             }, 3000);
         });
-    }
 
-    getIsOnline(){
-        return this.isOnline;
+        self.disconnectSubscription = self.network.onDisconnect().subscribe(() => {
+            self.isOnline = false;
+        });
     }
-
+    
 }
