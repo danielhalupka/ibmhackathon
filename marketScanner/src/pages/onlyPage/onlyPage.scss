@@ -1,3 +1,17 @@
-page-home {
-
+page-only {
+    .scroll-content{
+        text-align:center;
+    }
+    button.fullscreen-button {
+        width: 180px;
+        height: 180px;
+        color: white;
+        background: red;
+        border: 7px solid #ff5a5a;
+        font-size: 36px;
+        font-weight: bold;
+        margin-top: calc(50vh - 180px);
+        text-transform: uppercase;
+        border-radius: 50%;
+    }
 }

@@ -1,16 +1,15 @@
 <ion-header>
     <ion-navbar>
         <ion-title>
-            Ionic Blank
+            Shop Scanner
         </ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <button (click)="readQRCode()">Scann</button>
-
-    <div>
+    <button (click)="readQRCode()" class="fullscreen-button">Scan</button>
+    <!--div>
         <ngx-barcode *ngFor="let barcode of barcodes" [bc-value]="barcode" [bc-display-value]="true"></ngx-barcode>
-    </div>
+    </div-->
 
 </ion-content>
