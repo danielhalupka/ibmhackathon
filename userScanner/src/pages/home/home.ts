@@ -11,4 +11,7 @@ export class HomePage {
 
   }
 
+  goToCart() {
+    this.navCtrl.push('CartPage');
+  }
 }

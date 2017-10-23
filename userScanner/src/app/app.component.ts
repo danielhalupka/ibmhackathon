@@ -5,13 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { CheckoutPage } from '../pages/checkout/checkout';
-import { CheckPricePage } from '../pages/check-price/check-price';
-import { SingleProductPage } from '../pages/single-product/single-product';
-import { SingleOrderPage } from '../pages/single-order/single-order';
 import { CartPage } from '../pages/cart/cart';
-import { OrderHistoryPage } from '../pages/order-history/order-history';
-import { RegisterLoginPage } from '../pages/register-login/register-login';
-
+import { CheckPricePage } from '../pages/check.price/check.price';
 import { SocketInitiator } from './services/socketinitiator';
 @Component({
   templateUrl: 'app.html'
@@ -30,12 +25,8 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'Checkout', component: CheckoutPage},
-      { title: 'Check-Price', component: CheckPricePage},
-      { title: 'Single-Product', component: SingleProductPage},
-      { title: 'Single-Order', component: SingleOrderPage},
       { title: 'Cart', component: CartPage},
-      { title: 'Order-histor', component: OrderHistoryPage},
-      { title: 'Register-Login', component: RegisterLoginPage}
+      { title: 'Price Checker', component: CheckPricePage}
     
     ];
 

@@ -4,9 +4,10 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { Socket } from 'ng-socket-io';
 import { SingleProductModel } from '../../app/services/single.product.model';
 import { Observable } from 'rxjs/Observable';
+
 @Component({
   selector: 'page-check-price',
-  templateUrl: 'check-price.html',
+  templateUrl: 'check.price.html',
 })
 export class CheckPricePage {
 

@@ -59,7 +59,11 @@ export class CartPage {
   }
 
   finishOrder(){
-    this.navCtrl.push('CheckoutPage');
+    if(this.currentCart.barcodes.length === 0){
+      alert('No products in cart');
+    }else{
+      this.navCtrl.push('CheckoutPage');    
+    }
   }
 
 
