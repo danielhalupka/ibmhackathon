@@ -22,7 +22,7 @@ export class CheckPricePage {
 
   getProductFromBarcode(){
     let observable = new Observable(observer => {
-        this.socket.on('market orders', (data) => {
+        this.socket.on('single product', (data) => {
           observer.next(data);
         });
       });
@@ -34,7 +34,7 @@ export class CheckPricePage {
       formats: 'DATA_MATRIX, UPC_E, UPC_A, EAN_8, EAN_13, CODE_128, CODE_39, CODE_93, CODABAR, ITF, RSS14, RSS_EXPANDED, PDF417, AZTEC, MSI',
       prompt: 'Point to barcode.'
     }).then((barcode) => {
-      this.socket.emit('get product data from barcode');
+      this.socket.emit('get product data from barcode',barcode.text);
     }, (err) => {
       alert(err);
     });

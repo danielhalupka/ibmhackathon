@@ -12,4 +12,7 @@
 
 <ion-content padding>
     <button  (click)="readBarcodeForPrice()" class="fullscreen-button">Scan</button>
+    <h3>
+        {{singleProductModel.product.product_name}} - {{singleProductModel.product.price}}
+    </h3>
 </ion-content>

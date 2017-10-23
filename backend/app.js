@@ -39,6 +39,18 @@ mongo.connect('mongodb://xit.me:12345/scan2shop', function (err, db) {
       });
     });
 
+    socket.on('get product data from barcode',function(data){
+      barcodes.findOne({ 'payload' : data },function(err,res){
+        if(err){
+          throw err;
+        }
+        socket.emit('single product',res);
+
+      })
+    });
+
+
+
   });
 });
 
