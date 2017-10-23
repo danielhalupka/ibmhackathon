@@ -1,0 +1,16 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            Ionic Blank
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <button (click)="readQRCode()">Scann</button>
+
+    <div>
+        <ngx-barcode *ngFor="let barcode of barcodes" [bc-value]="barcode" [bc-display-value]="true"></ngx-barcode>
+    </div>
+
+</ion-content>
