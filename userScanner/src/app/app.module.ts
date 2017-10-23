@@ -8,6 +8,7 @@ import { OnlineChecker } from './services/online.checker.service';
 import { OnlineIndicator } from './components/online.indicator/online.indicator';
 import { Network } from '@ionic-native/network';
 
+import { SocketInitiator } from './services/socketinitiator';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { CheckoutPage } from '../pages/checkout/checkout';
@@ -27,7 +28,7 @@ const config: SocketIoConfig = { url: 'https://scan2shop.mybluemix.net', options
   declarations: [
     MyApp,
     HomePage,
-    OnlineIndicator,
+    OnlineIndicator, 
     CheckoutPage,
     CheckPricePage,
     SingleProductPage,
@@ -59,6 +60,7 @@ const config: SocketIoConfig = { url: 'https://scan2shop.mybluemix.net', options
     OnlineChecker,
     StatusBar,
     Network,
+    SocketInitiator,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
