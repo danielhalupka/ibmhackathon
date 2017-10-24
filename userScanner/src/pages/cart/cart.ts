@@ -39,6 +39,14 @@ export class CartPage {
 
   }
 
+  deleteProduct(barcode){
+    for(let i = 0;i<this.currentCart.products.length;i++){
+      if(this.currentCart.products[i].payload==barcode){
+         this.currentCart.products.splice(i,1);
+      }
+    }
+  }
+
   finishAdding() {
     if (this.howManyNumber === 1) {
       this.currentCart.barcodes.push(this.actualBarcode);
@@ -56,6 +64,7 @@ export class CartPage {
 
   clearAll(){
     this.currentCart.barcodes = [];
+    this.currentCart.products = [];
     this.howManyActive = false;
     this.howManyNumber = 1;
   }

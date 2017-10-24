@@ -28,15 +28,6 @@ export class CurrentCart {
         }
     }
 
-    setNewProductInfo(productInfo,i){
-        this.products.push({
-            payload:productInfo.payload,
-            qty:1,
-            price:productInfo.price,
-            product_name:productInfo.product_name
-        });
-    }
-
     addProduct(barcode,qty){
         let isPresent = false;
         let isPresentIdx = null;
@@ -55,7 +46,24 @@ export class CurrentCart {
             });
         }
         if(!isPresent && this.onlineChecker.isOnline){
-            this.socket.emit('get product info',{barcode:this.products[isPresentIdx].payload,index:0,},this.setNewProductInfo);
+            this.socket.emit('get product info',{barcode:barcode,index:0,},(productInfo,i) => {
+                if(typeof productInfo !== 'undefined' && typeof productInfo['payload']!== 'undefined'){
+                    this.products.push({
+                        payload:productInfo.payload,
+                        qty:qty,
+                        price:productInfo.price,
+                        product_name:productInfo.product_name
+                    });
+                }else{
+                    this.products.push({
+                        payload:barcode,
+                        qty:qty,
+                        price:'N/A',
+                        product_name:'N/A'
+                    });
+                }
+                
+            });
             
         }else if(!isPresent && !this.onlineChecker.isOnline){
             this.products.push({
