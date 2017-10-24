@@ -15,13 +15,13 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 .cart-products .barcode-holder {
-    width: 25%;
+    width: 92px;
     float: left;
 }
 
 .cart-products .product-info {
     float: left;
-    width: calc(75% - 32px);
+    width: calc(100% - 124px);
     /* display: block; */
     padding: 8px;
     /* overflow: hidden; */
@@ -30,11 +30,12 @@
 .cart-products .delete-product{
     float:left;
     width:32px;
-
+    padding-top: 24px;
+    font-size: 24px;
 }
 
 .cart-products .product-info h3 {
-    font-size: 19px;
+    font-size: 16px;
     text-align: left;
     margin: 0;
 }
@@ -42,6 +43,8 @@
     float: left;
     width: 100%;
     text-align: center;
+    
+    border: 1px solid gainsboro;
 }
 .button-holded {
     position: fixed;
@@ -95,8 +98,8 @@ button.blue{
 }
 
 .button-holded button.lg{
-    width:56px;
-    height:56px;
+    width:85px;
+    height:85px;
 }
 
 online-indicator {

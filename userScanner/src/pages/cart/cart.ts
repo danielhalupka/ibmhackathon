@@ -42,6 +42,7 @@ export class CartPage {
     if (this.howManyNumber === 1) {
       this.currentCart.barcodes.push(this.actualBarcode);
     } else {
+      this.currentCart.barcodes
       this.currentCart.barcodes.push({
         v: this.actualBarcode,
         m: this.howManyNumber
