@@ -10,7 +10,8 @@ import { CheckPricePage } from '../pages/check.price/check.price';
 import { SocketInitiator } from './services/socketinitiator';
 import { OnlineChecker } from '../app/services/online.checker.service';
 import { OrderHistoryPage } from '../pages/order-history/order-history';
-import { SingleOrderPage } from '../pages/single-order/single-order';
+import { Storage } from '@ionic/storage';
+import { OrdersModel } from './services/orders.model';
 
 @Component({
   templateUrl: 'app.html'
@@ -23,7 +24,7 @@ export class MyApp {
   pages: Array<{ title: string, component: any }>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private socketInitiator: SocketInitiator,
-    public onlineChecker: OnlineChecker) {
+    public onlineChecker: OnlineChecker, public ordersModel: OrdersModel, public storage: Storage) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -35,7 +36,14 @@ export class MyApp {
       { title: 'Order History', component: OrderHistoryPage }
 
     ];
-
+    this.storage.get('orders').then((val) => {
+      if (!val) {
+        this.ordersModel.orders = [];
+        this.storage.set('orders', []);
+      } else {
+        this.ordersModel.orders = val;
+      }
+    });
   }
 
   initializeApp() {
@@ -54,7 +62,7 @@ export class MyApp {
       } else {
         alert('This page requires internet connection!');
       }
-    }else{
+    } else {
       this.nav.setRoot(page.component);
     }
     // Reset the content nav to have just this page
