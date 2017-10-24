@@ -16,6 +16,7 @@ export class CartPage {
   howManyNumber: Number = 1;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public scanner: BarcodeScanner, public currentCart : CurrentCart) {
+    this.currentCart.reloadProductData();
   }
 
   startAddProduct() {

@@ -1,5 +1,7 @@
 const mongo = require('mongodb').MongoClient;
-const client = require('socket.io').listen(process.env.PORT || 3000).sockets;
+const io = require('socket.io').listen(process.env.PORT || 3000);
+const client = io.sockets;
+io.set('origins', '*:*');
 let barcodes, userOrders, marketOrders, users;
 //mongodb://xit.me:12345/scan2shop
 mongo.connect('mongodb://xit.me:12345/scan2shop', function (err, db) {
@@ -41,6 +43,7 @@ mongo.connect('mongodb://xit.me:12345/scan2shop', function (err, db) {
 
     socket.on('get product data from barcode',function(data){
       barcodes.findOne({ 'payload' : data },function(err,res){
+        console.log(data);
         if(err){
           throw err;
         }
@@ -50,10 +53,11 @@ mongo.connect('mongodb://xit.me:12345/scan2shop', function (err, db) {
     });
 
     socket.on('get product info',function(data,callback){
-      barcodes.findOne({ 'payload' : data },function(err,res){
+      barcodes.findOne({'payload' : ""+data.barcode},function(err,res){
         if(err){
           throw err;
         }
+        res['index'] = data.index;
        callback(res);
 
       })

@@ -18,32 +18,44 @@ export class CurrentCart {
         
     }
 
+    reloadProductData(){
+        var self = this;
+        for(let i=0;i<this.products.length;i++){
+            this.socket.emit('get product info',{barcode:this.products[i].payload,index:i},(productInfo,i) => {
+                self.products[productInfo.index].price=productInfo.price;
+                self.products[productInfo.index].product_name = productInfo.product_name;
+            });
+        }
+    }
+
+    setNewProductInfo(productInfo,i){
+        this.products.push({
+            payload:productInfo.payload,
+            qty:1,
+            price:productInfo.price,
+            product_name:productInfo.product_name
+        });
+    }
+
     addProduct(barcode,qty){
         let isPresent = false;
         let isPresentIdx = null;
+        var self = this;
         for(let i=0;i<this.products.length;i++){
             if(this.products[i].payload==barcode){
-                this.products[i].qty+=1;
+                this.products[i].qty+=qty;
                 isPresent = true;
                 isPresentIdx = i;
             }
         }
         if(isPresent && this.products[isPresentIdx].product_name == 'N/A'){
-            this.socket.emit('get product info',barcode,function(productInfo){
-                this.products[isPresentIdx].price=productInfo.price;
-                this.products[isPresentIdx].product_name = productInfo.product_name;
-                
+            this.socket.emit('get product info',{barcode:this.products[isPresentIdx].payload,index:isPresentIdx},(productInfo,i) => {
+                self.products[productInfo.index].price=productInfo.price;
+                self.products[productInfo.index].product_name = productInfo.product_name;
             });
         }
         if(!isPresent && this.onlineChecker.isOnline){
-            this.socket.emit('get product info',barcode,function(productInfo){
-                this.products.push({
-                    payload:productInfo.payload,
-                    qty:qty,
-                    price:productInfo.price,
-                    product_name:productInfo.product_name
-                });
-            });
+            this.socket.emit('get product info',{barcode:this.products[isPresentIdx].payload,index:0,},this.setNewProductInfo);
             
         }else if(!isPresent && !this.onlineChecker.isOnline){
             this.products.push({

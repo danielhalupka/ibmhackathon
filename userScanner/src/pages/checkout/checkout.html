@@ -15,12 +15,14 @@
     <qr-code [value]="stringify(currentCart.barcodes)" [size]="300"></qr-code>
 
     <div class="button-holded">
-        <div><button class="red" (click)="cancel()">Cancel</button>
+        <div>
+            <button class="red" (click)="cancel()"><i class="fa fa-chevron-left"></i></button>
         </div>
         <div>
+            <button style="opacity:0"></button>
         </div>
         <div>
-            <button class="green" (click)="finishCheckout()">Done</button>
+            <button class="green" (click)="finishCheckout()"><i class="fa fa-check"></i></button>
         </div>
 
     </div>
