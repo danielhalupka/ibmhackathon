@@ -48,6 +48,7 @@ export class CartPage {
         m: this.howManyNumber
       });
     }
+    this.currentCart.addProduct(this.actualBarcode,this.howManyNumber);
     this.howManyActive = false;
     this.howManyNumber = 1;
   }

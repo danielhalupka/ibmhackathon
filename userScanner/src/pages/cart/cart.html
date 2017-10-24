@@ -21,13 +21,13 @@
 
     <div>
         <ul class="cart-products" style="margin: 0;padding: 0;list-style:none;">
-            <li *ngFor="let barcode of currentCart.barcodes">
-                <div class="barcode-holder"><ngx-barcode  [bc-font-size]="10"  [bc-width]="0.5" [bc-height]="45" [bc-value]="barcode" [bc-display-value]="true"></ngx-barcode>
+            <li *ngFor="let product of currentCart.products">
+                <div class="barcode-holder"><ngx-barcode  [bc-font-size]="10"  [bc-width]="0.5" [bc-height]="45" [bc-value]="product.payload" [bc-display-value]="true"></ngx-barcode>
                 </div>
                 <div class="product-info">
-                    <h3>Product Name: N/A</h3>
-                    <h3>Price: N/A</h3>
-                    <h3>QTY: 1</h3>
+                    <h3>Product Name: {{product.product_name}}</h3>
+                    <h3>Price: {{product.price}}</h3>
+                    <h3>QTY: {{product.qty}}</h3>
                 </div>
                 <div class="delete-product">
                         <i class="fa fa-close" aria-hidden="true"></i>
