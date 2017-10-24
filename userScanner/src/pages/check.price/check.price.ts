@@ -11,31 +11,36 @@ import { Observable } from 'rxjs/Observable';
 })
 export class CheckPricePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public scanner: BarcodeScanner,public socket:Socket,public singleProductModel:SingleProductModel) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public scanner: BarcodeScanner, public socket: Socket, public singleProductModel: SingleProductModel) {
     this.constructListeners();
   }
 
-  constructListeners(){
+  constructListeners() {
     this.getProductFromBarcode().subscribe(product => {
-          this.singleProductModel.product = product;
+      this.singleProductModel.product = product;
+      if(product === null){
+        alert('No information about this product!');      
+      }else{
+        this.navCtrl.push('SingleProductPage');      
+      }
     });
   }
 
-  getProductFromBarcode(){
+  getProductFromBarcode() {
     let observable = new Observable(observer => {
-        this.socket.on('single product', (data) => {
-          observer.next(data);
-        });
+      this.socket.on('single product', (data) => {
+        observer.next(data);
       });
-      return observable;
+    });
+    return observable;
   }
 
-  readBarcodeForPrice(){
+  readBarcodeForPrice() {
     this.scanner.scan({
       formats: 'DATA_MATRIX, UPC_E, UPC_A, EAN_8, EAN_13, CODE_128, CODE_39, CODE_93, CODABAR, ITF, RSS14, RSS_EXPANDED, PDF417, AZTEC, MSI',
       prompt: 'Point to barcode.'
     }).then((barcode) => {
-      this.socket.emit('get product data from barcode',barcode.text);
+      this.socket.emit('get product data from barcode', barcode.text);
     }, (err) => {
       alert(err);
     });
