@@ -9,6 +9,8 @@ import { CartPage } from '../pages/cart/cart';
 import { CheckPricePage } from '../pages/check.price/check.price';
 import { SocketInitiator } from './services/socketinitiator';
 import { OnlineChecker } from '../app/services/online.checker.service';
+import { OrderHistoryPage } from '../pages/order-history/order-history';
+import { SingleOrderPage } from '../pages/single-order/single-order';
 
 @Component({
   templateUrl: 'app.html'
@@ -29,7 +31,8 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'Checkout', component: CheckoutPage },
       { title: 'Cart', component: CartPage },
-      { title: 'Price Checker', component: CheckPricePage }
+      { title: 'Price Checker', component: CheckPricePage },
+      { title: 'Order History', component: OrderHistoryPage }
 
     ];
 

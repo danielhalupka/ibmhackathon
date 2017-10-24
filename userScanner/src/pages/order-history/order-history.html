@@ -1,0 +1,19 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Order History
+            <online-indicator></online-indicator>
+        </ion-title>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <div>
+        <li *ngFor="let order of ordersModel.orders; let i = index;" (click)="viewOrder(i)">{{order.date}}</li>
+
+    </div>
+
+</ion-content>

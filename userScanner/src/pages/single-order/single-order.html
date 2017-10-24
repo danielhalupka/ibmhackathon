@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{ordersModel.orders[ordersModel.viewing].date | date : 'medium'}}
+            <online-indicator></online-indicator>
+        </ion-title>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ul class="cart-products" style="margin: 0;padding: 0;list-style:none;">
+        <li *ngFor="let barcode of ordersModel.orders[ordersModel.viewing].barcodes">
+            <div class="barcode-holder">
+                <ngx-barcode [bc-font-size]="10" [bc-width]="0.5" [bc-height]="60" [bc-value]="barcode.payload" [bc-display-value]="true"></ngx-barcode>
+            </div>
+            <div class="product-info">
+                <h3>Product Name: {{barcode.product_name || 'N/A'}}</h3>
+                <h3>Price: {{barcode.price || 'N/A'}}</h3>
+                <h3>QTY: {{barcode.qty || 'N/A'}}</h3>
+            </div>
+        </li>
+    </ul>
+
+</ion-content>
