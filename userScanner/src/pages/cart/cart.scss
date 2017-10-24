@@ -1,17 +1,33 @@
 page-cart {
-    .scroll-content{
+    .input-modal {
+        position: absolute;
+        z-index: 99999;
+        background-color: rgba(0,0,0,0.5);
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .input-modal .input-modal-content {
+        background: white;
+        padding: 25px;
+        margin-top: calc(50vh - 100px);
+        margin-left: 8px;
+        margin-right: 8px;
         text-align:center;
     }
-    button.fullscreen-button {
-        width: 180px;
-        height: 180px;
+    
+    .input-modal-content button {
         color: white;
-        background: rgb(88, 167, 24);
-        border: 7px solid #4bdf62;
-        font-size: 36px;
-        font-weight: bold;
-        margin-top: calc(50vh - 180px);
-        text-transform: uppercase;
-        border-radius: 50%;
+        padding: 16px 32px;
+        font-size: 16px;
+    }
+    
+    .input-modal-content input {
+        color: black;
+        background:white;
+        padding: 16px 32px;
+        font-size: 16px;
     }
 }

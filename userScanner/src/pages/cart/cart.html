@@ -13,10 +13,12 @@
 <ion-content padding>
 
     <div *ngIf="currentCart.products.length === 0">No products in cart</div>
-    <div *ngIf="howManyActive">
-        <p>How many?</p>
-        <input type="number" [(ngModel)]="howManyNumber" name="howManyNumber">
-        <button *ngIf="howManyActive" (click)="finishAdding()" class="green lg">Add</button>
+    <div *ngIf="howManyActive" class="input-modal">
+        <div class="input-modal-content">
+                <p>Quantity:</p>
+                <input type="number" [(ngModel)]="howManyNumber" name="howManyNumber">
+                <button (click)="finishAdding()" class="green lg">Add</button>
+        </div>
     </div>
 
     <div>
