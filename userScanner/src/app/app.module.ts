@@ -17,6 +17,7 @@ import { CheckoutPageModule } from '../pages/checkout/checkout.module';
 import { CartPageModule } from '../pages/cart/cart.module';  
 import { CheckPriceModule } from '../pages/check.price/check.price.module';
 import { SingleProductPageModule } from '../pages/single-product/single-product.module';
+import { OrderHistoryPageModule } from '../pages/order-history/order-history.module';
 
 
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
@@ -44,7 +45,8 @@ const config: SocketIoConfig = { url: 'https://scan2shop.mybluemix.net', options
     CartPageModule,
     OnlineIndicatorModule,
     CheckPriceModule,
-    SingleProductPageModule
+    SingleProductPageModule,
+    OrderHistoryPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
