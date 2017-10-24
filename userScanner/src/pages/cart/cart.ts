@@ -55,7 +55,6 @@ export class CartPage {
     this.currentCart.barcodes = [];
     this.howManyActive = false;
     this.howManyNumber = 1;
-    this.navCtrl.popToRoot();
   }
 
   finishOrder(){

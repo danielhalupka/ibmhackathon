@@ -12,7 +12,7 @@ import { OnlineIndicatorModule } from '../../app/components/online.indicator/onl
     imports: [
         QRCodeModule,
         IonicPageModule.forChild(CheckoutPage),
-       OnlineIndicatorModule
+        OnlineIndicatorModule
     ],
     providers: [
         OnlineChecker
