@@ -12,7 +12,7 @@
 
 <ion-content padding>
     <div>
-        <li *ngFor="let order of ordersModel.orders; let i = index;" (click)="viewOrder(i)">{{order.date}}</li>
+        <li *ngFor="let order of ordersModel.orders; let i = index;" (click)="viewOrder(i)">Order - {{order.date | date : 'medium'}}</li>
 
     </div>
 
