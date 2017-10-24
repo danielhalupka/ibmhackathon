@@ -4,7 +4,7 @@ const client = io.sockets;
 io.set('origins', '*:*');
 let barcodes, userOrders, marketOrders, users;
 //mongodb://xit.me:12345/scan2shop
-mongo.connect('mongodb://xit.me:12345/scan2shop', function (err, db) {
+mongo.connect('mongodb://admin:ZAMGABODRDCKBSEX@sl-us-south-1-portal.10.dblayer.com:25568,sl-us-south-1-portal.9.dblayer.com:25568/admin?ssl=true', function (err, db) {
   if (err) {
     throw err;
   }
