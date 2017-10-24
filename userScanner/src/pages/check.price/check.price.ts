@@ -18,8 +18,11 @@ export class CheckPricePage {
   constructListeners() {
     this.getProductFromBarcode().subscribe(product => {
       this.singleProductModel.product = product;
-      alert(product);
-      this.navCtrl.push('SingleProductPage');
+      if(product === null){
+        alert('No information about this product!');      
+      }else{
+        this.navCtrl.push('SingleProductPage');      
+      }
     });
   }
 

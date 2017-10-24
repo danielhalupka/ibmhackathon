@@ -11,6 +11,12 @@
 </ion-header>
 
 <ion-content padding>
-
+    <div class="barcode-holder">
+        <ngx-barcode [bc-font-size]="10" [bc-width]="2" [bc-height]="180" [bc-value]="singleProductModel.product.payload" [bc-display-value]="true"></ngx-barcode>
+    </div>
+    <div class="product-info">
+        <h3>Product Name: {{singleProductModel.product.product_name || N/A}}</h3>
+        <h3>Price: {{singleProductModel.product.price || N/A}}</h3>
+    </div>
 
 </ion-content>
