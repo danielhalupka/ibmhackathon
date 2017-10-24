@@ -20,7 +20,7 @@ export class CheckoutPage {
   }
 
   cancel() {
-    this.navCtrl.push('CartPage');
+    this.navCtrl.pop();
   }
 
   finishCheckout() {

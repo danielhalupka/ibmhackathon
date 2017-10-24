@@ -30,7 +30,6 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'Checkout', component: CheckoutPage },
       { title: 'Cart', component: CartPage },
       { title: 'Price Checker', component: CheckPricePage },
       { title: 'Order History', component: OrderHistoryPage }
@@ -40,7 +39,7 @@ export class MyApp {
       if (!val) {
         this.ordersModel.orders = [];
         this.storage.set('orders', []);
-      } else {
+      } else { 
         this.ordersModel.orders = val;
       }
     });

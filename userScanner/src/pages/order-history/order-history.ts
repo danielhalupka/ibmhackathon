@@ -21,7 +21,6 @@ export class OrderHistoryPage implements OnInit {
   }
 
   viewOrder(index) {
-    this.ordersModel.viewing = index;
-    this.navCtrl.push('SingleOrderPage');
+    this.navCtrl.push('SingleOrderPage',{idx:index});
   }
 }

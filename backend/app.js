@@ -57,7 +57,10 @@ mongo.connect('mongodb://xit.me:12345/scan2shop', function (err, db) {
         if(err){
           throw err;
         }
-        res['index'] = data.index;
+        res = res || {};
+          res['index'] = data.index;
+        
+       
        callback(res);
 
       })

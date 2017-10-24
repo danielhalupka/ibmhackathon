@@ -23,7 +23,7 @@
     float: left;
     width: calc(100% - 124px);
     /* display: block; */
-    padding: 8px;
+    padding: 8px 8px 8px 24px;
     /* overflow: hidden; */
 }
 
@@ -42,9 +42,12 @@
 .cart-products li {
     float: left;
     width: 100%;
+    background: #3ba6b7;
+    margin-top: 16px;
+    color: white;
     text-align: center;
-    
     border: 1px solid gainsboro;
+    border-radius: 5px;
 }
 .button-holded {
     position: fixed;
@@ -80,20 +83,20 @@
 }
 
 button.green {
-    background: green;
-    border-color: rgb(51, 223, 51);
+    background: #2ba22b;
+    border-color: #178417;
     border-style: solid;
 }
 
 button.red {
-    background: red;
-    border-color: rgb(245, 101, 101);
+    background: #ce3838;
+    border-color: #a92b2b;
     border-style: solid;
 }
 
 button.blue{
-    background:blue;
-    border-color:rgb(100, 100, 255);
+    background: #45a2ce;
+    border-color: #03959c;
     border-style: solid;
 }
 

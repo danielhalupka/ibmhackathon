@@ -42,10 +42,19 @@ export class CartPage {
   deleteProduct(barcode){
     for(let i = 0;i<this.currentCart.products.length;i++){
       if(this.currentCart.products[i].payload==barcode){
-         this.currentCart.products.splice(i,1);
+         this.currentCart.products.splice(i,1); 
+      }
+    }
+
+    for(let j = 0;j<this.currentCart.barcodes.length;j++){
+      if(this.currentCart.barcodes[j]==barcode){
+        this.currentCart.barcodes.splice(j,1);
+      }else if(typeof this.currentCart.barcodes[j]['v'] != 'undefined' && this.currentCart.barcodes[j]['v'] == barcode){
+        this.currentCart.barcodes.splice(j,1);
       }
     }
   }
+
 
   finishAdding() {
     if (this.howManyNumber === 1) {
@@ -70,6 +79,7 @@ export class CartPage {
   }
 
   finishOrder(){
+    console.log(this.currentCart.barcodes);
     if(this.currentCart.barcodes.length === 0){
       alert('No products in cart');
     }else{

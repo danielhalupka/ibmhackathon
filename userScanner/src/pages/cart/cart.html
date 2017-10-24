@@ -22,7 +22,7 @@
     </div>
 
     <div>
-        <ul class="cart-products" style="margin: 0;padding: 0;list-style:none;">
+        <ul class="cart-products" style="margin: 0;padding: 0;list-style:none;margin-bottom: 90px;overflow: hidden;">
             <li *ngFor="let product of currentCart.products">
                 <div class="barcode-holder"><ngx-barcode  [bc-font-size]="10"  [bc-width]="0.5" [bc-height]="45" [bc-value]="product.payload" [bc-display-value]="true"></ngx-barcode>
                 </div>

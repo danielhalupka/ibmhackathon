@@ -11,9 +11,9 @@
 </ion-header>
 
 <ion-content padding>
-    <div>
-        <li *ngFor="let order of ordersModel.orders; let i = index;" (click)="viewOrder(i)">Order - {{order.date | date : 'medium'}}</li>
-
+    <div class="order-history">
+        <ul><li *ngFor="let order of ordersModel.orders; let i = index;" (click)="viewOrder(i)"><i class="fa fa-shopping-basket"></i> Order - {{order.date | date : 'medium'}}</li>        </ul>
+        
     </div>
 
 </ion-content>
