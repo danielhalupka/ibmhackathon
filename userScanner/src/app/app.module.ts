@@ -25,8 +25,8 @@ import { QRCodeModule } from 'angular2-qrcode';
 import { NgxBarcodeModule } from 'ngx-barcode';
 
 import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
-// const config: SocketIoConfig = { url: 'https://scan2shop.mybluemix.net', options: {} };
-const config: SocketIoConfig = { url: 'http://10.62.193.234:3000', options: {} };
+const config: SocketIoConfig = { url: 'https://scan2shop.mybluemix.net', options: {} };
+// const config: SocketIoConfig = { url: 'http://10.62.193.234:3000', options: {} };
 
 @NgModule({
   declarations: [
